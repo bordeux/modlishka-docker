@@ -2,7 +2,7 @@
 set -e
 
 RUN_CMD='Modlishka'
-env -0 | while IFS='=' read -r -d '' envName envValue; do
+env | while IFS='=' read -r -d '' envName envValue; do
 	envName=$(echo "${envName}" | tr '[:upper:]' '[:lower:]')
 	if [[ ${envName} == ml* ]] ;
 	then
