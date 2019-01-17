@@ -11,5 +11,6 @@ env | while IFS='=' read -r -d '' envName envValue; do
 	fi
 done
 
+echo "Running command: ${RUN_CMD}"
 
 ${RUN_CMD}
