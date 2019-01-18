@@ -11,10 +11,11 @@ do
         if [[ "${envName:0:3}" = "ml_" ]] ;
         then
 			optionName=$(echo "${envName}" | sed -r 's/(^ml\_)//g' | sed -r 's/(_)([a-z])/\U\2/g')
-			RUN_CMD="${RUN_CMD} -${optionName} ${optionName}"
+			optionValue=$(echo "${line}" | sed -r 's/(^[a-zA-Z0-9]+)\=//g')
+			RUN_CMD="${RUN_CMD} -${optionName} ${optionValue}"
         fi
 done
 
 echo "Running command: ${RUN_CMD}"
 
-#${RUN_CMD}
+${RUN_CMD}
