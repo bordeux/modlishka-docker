@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-RUN_CMD='Modlishka'
+RUN_CMD='${MODLISHKA_BIN}'
 IFS='
 '
 envList=$(env)

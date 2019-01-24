@@ -1,10 +1,13 @@
 # ..Modlishka..
-[It is unofficial docker image for Modlishka project](https://github.com/drk1wi/Modlishka)
 
-More about project
+Modlishka is a flexible and powerful reverse proxy, that will take your phishing campaigns to the next level. 
 
-Modlishka is a flexible and powerful reverse proxy, that will take your phishing campaigns to the next level (with minimal effort required from your side). 
- 
+It was realeased with an aim to:
+- help penetration testers to carry out an effective phishing campaign and reinforce the fact that **serious** threat can arise from phishing.
+- show current 2FA weaknesses, so adequate security solutions can be created and implemented soon.
+- raise community awareness about modern phishing techniques and strategies.
+- support other open source projects that require a universal reverse proxy.
+
 Enjoy :-)
 
 
@@ -23,6 +26,7 @@ Some of the most important 'Modlishka' features :
 -   Can be extended with your ideas through plugins.
 -   Stateless design. Can be scaled up easily for an arbitrary number of users - ex. through a DNS load balancer.
 -   Web panel with a summary of collected credentials and user session impersonation (beta).
+-   Backdoor free ;-).
 -   Written in Go.
 
 
@@ -37,78 +41,94 @@ _"A picture is worth a thousand words":_
 [https://vimeo.com/308709275](https://vimeo.com/308709275)
 
 Note: google.com was chosen here just as a POC.
+
+
+Installation
+------------
+
+Latest source code version can be fetched from [here](https://github.com/drk1wi/modlishka/zipball/master) (zip) or [here](https://github.com/drk1wi/modlishka/tarball/master) (tar).
+
+Fetch the code with _'go get'_ :
+
+    $ go get -u github.com/drk1wi/Modlishka
+
+Compile the binary and you are ready to go:
+
+    $ cd $GOPATH/src/github.com/drk1wi/Modlishka/
+    $ make
+    
     
 ![alt text](https://raw.githubusercontent.com/drk1wi/assets/master/7d0426a133a85a46a76a424574bf5a2acf99815e.png)
 
-
+    # ./dist/proxy -h
   
     
-    Usage of docker file - Environment variables
+    Usage of ./dist/proxy:
           
-      -ML_CERT string
+      -cert string
         	base64 encoded TLS certificate
       
-      -ML_CERT_KEY string
+      -certKey string
         	base64 encoded TLS certificate key
       
-      -ML_CERT_POOL string
+      -certPool string
         	base64 encoded Certification Authority certificate
       
-      -ML_CONFIG string
+      -config string
         	JSON configuration file. Convenient instead of using command line switches.
       
-      -ML_CRED_PARAMS string
+      -credParams string
           	Credential regexp collector with matching groups. Example: base64(username_regex),base64(password_regex)
 
-      -ML_DEBUG
+      -debug
         	Print debug information
       
-      -ML_DISABLE_SECURITY
+      -disableSecurity
         	Disable security features like anti-SSRF. Disable at your own risk.
       
-      -ML_JS_RULES string
+      -jsRules string
         	Comma separated list of URL patterns and JS base64 encoded payloads that will be injected. 
       
-      -ML_LISTENING_ADDRESS string
+      -listeningAddress string
         	Listening address (default "127.0.0.1")
       
-      -ML_LISTENING_PORT string
+      -listeningPort string
         	Listening port (default "443")
       
-      -ML_LOG string
+      -log string
         	Local file to which fetched requests will be written (appended)
       
-      -ML_PHISHING string
+      -phishing string
         	Phishing domain to create - Ex.: target.co
       
-      -ML_PLUGINS string
+      -plugins string
         	Comma seperated list of enabled plugin names (default "all")
       
-      -ML_POST_ONLY
+      -postOnly
         	Log only HTTP POST requests
       
-      -ML_RULES string
+      -rules string
         	Comma separated list of 'string' patterns and their replacements. 
       
-      -ML_TARGET string
+      -target string
         	Main target to proxy - Ex.: https://target.com
       
-      -ML_TARGET_RES string
+      -targetRes string
         	Comma separated list of target subdomains that need to pass through the  proxy 
       
-      -ML_TERMINATE_TRIGGERS string
+      -terminateTriggers string
         	Comma separated list of URLs from target's origin which will trigger session termination
       
-      -ML_TERMINATE_URL string
+      -terminateUrl string
         	URL to redirect the client after session termination triggers
       
-      -ML_TLS
+      -tls
         	Enable TLS (default false)
       
-      -ML_TRACKING_COOKIE string
+      -trackingCookie string
         	Name of the HTTP cookie used to track the victim (default "id")
       
-      -ML_TRACKING_PARAM string
+      -trackingParam string
         	Name of the HTTP parameter used to track the victim (default "id")
 
 
@@ -138,4 +158,5 @@ This tool is made only for educational purposes and can be only used in legitima
 -------
 
 [![Twitter](https://img.shields.io/badge/twitter-drk1wi-blue.svg)](https://twitter.com/drk1wi)
+
 
