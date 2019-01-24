@@ -15,6 +15,7 @@ RUN set -ex \
 		&& apk add --no-cache ${INSTALL_PACKAGES}\
         && cd ${PROJECT_DIR}/ && make \
 		&& cp ${PROJECT_DIR}/dist/proxy ${MODLISHKA_BIN} \
+		&& mv ${PROJECT_DIR}/templates /templates \
 		&& apk del ${INSTALL_PACKAGES} && rm -rf /var/cache/apk/* && rm -rf ${GOPATH}/src/*
 		
 CMD ["run-server.sh"]
